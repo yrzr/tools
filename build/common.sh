@@ -244,7 +244,9 @@ fi
 . ${DEVICEDIR}/${PRODUCT_DEVICE_REAL}.conf
 
 # reload the kernel according to device specifications
-export PRODUCT_KERNEL="${PRODUCT_KERNEL}${PRODUCT_DEVICE+"-${PRODUCT_DEVICE}"}"
+if [ ${PRODUCT_ARCH} != armv6 -a ${PRODUCT_ARCH} != armv7 -a ${PRODUCT_ARCH} != aarch64 ]; then
+	export PRODUCT_KERNEL="${PRODUCT_KERNEL}${PRODUCT_DEVICE+"-${PRODUCT_DEVICE}"}"
+fi
 
 # define and bootstrap target directories
 export STAGEDIR="${STAGEDIRPREFIX}${CONFIGDIR}/${PRODUCT_FLAVOUR}:${PRODUCT_ARCH}"
