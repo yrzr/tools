@@ -56,7 +56,7 @@ truncate -s ${ARMSIZE} ${ARMIMG}
 
 DEV=$(mdconfig -a -t vnode -f ${ARMIMG} -x 63 -y 255)
 
-ARM_FAT_SIZE=${ARM_FAT_SIZE:-"50m -b 1m"}
+ARM_FAT_SIZE=${ARM_FAT_SIZE:-"32m -b 1m"}
 
 gpart create -s MBR ${DEV}
 gpart add -t '!12' -a 512k -s ${ARM_FAT_SIZE} ${DEV}
