@@ -706,6 +706,8 @@ check_image()
 
 check_packages()
 {
+	return 1
+
 	local SELF=${1}
 	SKIP=${2}
 
